@@ -18,10 +18,9 @@ WHATSAPP_MSG = "Ciao Pamela e Anna, vorrei prenotare una consulenza con voi!"
 app = Flask(__name__)
 
 # Configurazione Flask-Mail (Aruba)
-app.config['MAIL_SERVER'] = 'smtp.aruba.it'
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USE_SSL'] = False
 app.config['MAIL_USERNAME'] = 'consulente@mybeautylab.it'
 app.config['MAIL_PASSWORD'] = 'Damiano20!'
 app.config['MAIL_DEFAULT_SENDER'] = 'consulente@mybeautylab.it'
@@ -365,6 +364,33 @@ def index():
 
     # GET request
     return render_template_string(HTML_FORM, errore=errore)
+    
+msg = Message(
+    subject="Consulenza estetica personalizzata Farmogal",
+    sender=EMAIL_MITTENTE,
+    recipients=[email_cliente],
+    bcc=["info@mybeautylab.it"]
+)
+msg.body = f"""
+Ciao {nome} {cognome},
+
+Ecco la richiesta ricevuta dal cliente:
+
+Nome: {nome}
+Cognome: {cognome}
+Età: {eta}
+Sesso: {sesso}
+Specchio: {specchio}
+Migliorare: {migliorare}
+Obiettivi: {obiettivi}
+Email: {email_cliente}
+
+--- RISPOSTA AMATI ---
+{answer}
+
+Ti affiancheremo in questo percorso di bellezza affinchè tu possa realizzare i tuoi obiettivi.
+"""
+mail.send(msg)
 
 if __name__ == '__main__':
     app.run(debug=True)
