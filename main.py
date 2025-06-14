@@ -291,9 +291,9 @@ def index():
             f"Come voglio migliorare: {migliorare}\n"
             f"I miei obiettivi: {obiettivi}\n"
             f"---\n"
-            f"[Prodotti Farmogal:]\n{pdf_text[:3000]}\n"
-            f"[Listino prezzi:]\n{listino_text[:1800]}\n"
-            f"[Promozioni attive nel mese:]\n{promo_text}"
+             f"[Prodotti Farmogal:]\n{pdf_text[:1500]}\n"
+            f"[Listino prezzi:]\n{listino_text[:800]}\n"
+            f"[Promo del mese:]\n{promo_text[:400]}"
         )
 
         try:
