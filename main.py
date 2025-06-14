@@ -368,7 +368,7 @@ def index():
 msg = Message(
     subject="Consulenza estetica personalizzata Farmogal",
     sender=EMAIL_MITTENTE,
-    recipients=[email_cliente],
+    recipients=[email],
     bcc=["consulente@mybeautylab.it"]
 )
 msg.body = f"""
@@ -383,7 +383,7 @@ Sesso: {sesso}
 Specchio: {specchio}
 Migliorare: {migliorare}
 Obiettivi: {obiettivi}
-Email: {email_cliente}
+Email: {email}
 
 --- RISPOSTA AMATI ---
 {answer}
