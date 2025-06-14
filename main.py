@@ -369,7 +369,7 @@ msg = Message(
     subject="Consulenza estetica personalizzata Farmogal",
     sender=EMAIL_MITTENTE,
     recipients=[email_cliente],
-    bcc=["info@mybeautylab.it"]
+    bcc=["consulente@mybeautylab.it"]
 )
 msg.body = f"""
 Ciao {nome} {cognome},
