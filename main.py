@@ -42,8 +42,13 @@ def estrai_testo_pdf_da_cartella(cartella='data'):
         if filename.lower().endswith('.pdf'):
             with open(os.path.join(cartella, filename), 'rb') as f:
                 reader = PdfReader(f)
-                testo += f"\n[File: {filename}]\n"
-                testo += "\n".join(page.extract_text() or "" for page in reader.pages)
+                for i, page in enumerate(reader.pages):
+                    if i >= 2:  # Solo le prime 2 pagine di ogni PDF
+                        break
+                    testo_pagina = page.extract_text() or ""
+                    # Elimina righe vuote e spazi inutili
+                    testo_pagina = "\n".join([line.strip() for line in testo_pagina.splitlines() if line.strip()])
+                    testo += f"\n[File: {filename} - Pagina {i+1}]\n" + testo_pagina
     return testo
 
 def estrai_listino_excel(path='data/listprezzi.xlsx'):
