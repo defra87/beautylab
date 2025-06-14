@@ -1,0 +1,6 @@
+flask
+flask_mail
+openai
+PyPDF2
+pandas
+openpyxl
