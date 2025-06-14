@@ -229,6 +229,23 @@ HTML_FORM = """
       document.getElementById('loading-div').style.display = 'block';
     }
   </script>
+  <script>
+function sendHeightToParent() {
+  if (window.parent !== window) {
+    var altezza = document.body.scrollHeight + 36; // 36px di margine di sicurezza!
+    window.parent.postMessage({iframeHeight: altezza}, "*");
+  }
+}
+window.onload = sendHeightToParent;
+window.onresize = sendHeightToParent;
+window.addEventListener('DOMContentLoaded', sendHeightToParent);
+window.addEventListener('load', sendHeightToParent);
+
+// Aggiorna anche dopo i caricamenti lenti, testi dinamici ecc
+for (let t = 100; t < 2200; t += 300) {
+  setTimeout(sendHeightToParent, t);
+}
+</script>
 </body>
 <script>
 function sendHeightToParent() {
@@ -269,6 +286,23 @@ HTML_THANKS = """
     <p>A breve riceverai una mail con la tua consulenza gratuita.</p>
     <a href="/">Torna al form</a>
   </div>
+  <script>
+function sendHeightToParent() {
+  if (window.parent !== window) {
+    var altezza = document.body.scrollHeight + 36; // 36px di margine di sicurezza!
+    window.parent.postMessage({iframeHeight: altezza}, "*");
+  }
+}
+window.onload = sendHeightToParent;
+window.onresize = sendHeightToParent;
+window.addEventListener('DOMContentLoaded', sendHeightToParent);
+window.addEventListener('load', sendHeightToParent);
+
+// Aggiorna anche dopo i caricamenti lenti, testi dinamici ecc
+for (let t = 100; t < 2200; t += 300) {
+  setTimeout(sendHeightToParent, t);
+}
+</script>
 </body>
 <script>
 function sendHeightToParent() {
