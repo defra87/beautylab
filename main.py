@@ -21,9 +21,9 @@ app = Flask(__name__)
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'consulente@mybeautylab.it'
-app.config['MAIL_PASSWORD'] = 'Damiano20!'
-app.config['MAIL_DEFAULT_SENDER'] = 'consulente@mybeautylab.it'
+app.config['MAIL_USERNAME'] = 'defra87@gmail.com'
+app.config['MAIL_PASSWORD'] = 'ulcneqsxjdahdwez'
+app.config['MAIL_DEFAULT_SENDER'] = 'defra87@gmail.com'
 mail = Mail(app)
 
 @app.route('/static/<path:filename>')
