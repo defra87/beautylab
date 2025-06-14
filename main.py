@@ -230,6 +230,19 @@ HTML_FORM = """
     }
   </script>
 </body>
+<script>
+function sendHeightToParent() {
+  if (window.parent !== window) {
+    window.parent.postMessage(
+      {iframeHeight: document.body.scrollHeight},
+      "*"
+    );
+  }
+}
+window.onload = sendHeightToParent;
+window.onresize = sendHeightToParent;
+setTimeout(sendHeightToParent, 500); // Per sicurezza dopo eventuali caricamenti asincroni
+</script>
 </html>
 """
 
@@ -257,6 +270,19 @@ HTML_THANKS = """
     <a href="/">Torna al form</a>
   </div>
 </body>
+<script>
+function sendHeightToParent() {
+  if (window.parent !== window) {
+    window.parent.postMessage(
+      {iframeHeight: document.body.scrollHeight},
+      "*"
+    );
+  }
+}
+window.onload = sendHeightToParent;
+window.onresize = sendHeightToParent;
+setTimeout(sendHeightToParent, 500); // Per sicurezza dopo eventuali caricamenti asincroni
+</script>
 </html>
 """
 
