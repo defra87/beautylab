@@ -232,7 +232,7 @@ HTML_FORM = """
   <script>
 function sendHeightToParent() {
   if (window.parent !== window) {
-    var altezza = document.body.scrollHeight + 36; // 36px di margine di sicurezza!
+    var altezza = document.body.scrollHeight + 20; // 20px di margine di sicurezza!
     window.parent.postMessage({iframeHeight: altezza}, "*");
   }
 }
@@ -289,7 +289,7 @@ HTML_THANKS = """
   <script>
 function sendHeightToParent() {
   if (window.parent !== window) {
-    var altezza = document.body.scrollHeight + 36; // 36px di margine di sicurezza!
+    var altezza = document.body.scrollHeight + 20; // 20px di margine di sicurezza!
     window.parent.postMessage({iframeHeight: altezza}, "*");
   }
 }
